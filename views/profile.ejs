@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+	<title>NestLog</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<div class="container">
+
+	<div class="page-header text-center">
+		<h1>NestLog</h1>
+		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+	</div>
+    
+    <% if (user.nest.token) { %>
+    <p>NestLog is linked with your Nest account, data will be collected every 5 minutes.</p>
+    
+    <div class="graph-container">
+        <div id="graph" class="graph-placeholder"></div>
+    </div>
+    
+    <% } else { %>
+    <p>Connect with your Nest account below.</p>
+    <% } %>
+
+	<div class="row">
+        
+		<!-- GOOGLE INFORMATION -->
+		<div class="col-sm-6">
+			<div class="well">
+				<h3 class="text-danger"><span class="fa fa-google-plus"></span> Google+</h3>
+
+				<% if (user.google.token) { %>
+					<p>
+						<strong>id</strong>: <%= user.google.id %><br>
+						<strong>token</strong>: <%= user.google.token %><br>
+						<strong>name</strong>: <%= user.google.name %>
+					</p>
+				<% } else { %>
+					<a href="/connect/google" class="btn btn-danger">Connect Google</a>
+				<% } %>
+
+			</div>
+		</div>
+
+		<!-- NEST INFORMATION -->
+		<div class="col-sm-6">
+			<div class="well">
+				<h3 class="text-danger"><span class="fa fa-circle-o"></span> Nest</h3>
+
+				<% if (user.nest.token) { %>
+					<p>
+						<strong>token</strong>: <%= user.nest.token %><br>
+					</p>
+
+					<a href="/unlink/nest" class="btn btn-danger">Unlink</a>
+				<% } else { %>
+					<a href="/connect/nest" class="btn btn-danger">Connect Nest</a>
+				<% } %>
+
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<% if (user.nest.token) { %>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/flot/0.8.2/jquery.flot.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/flot/0.8.2/jquery.flot.resize.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/flot/0.8.2/jquery.flot.time.min.js"></script>
+<script src="/scripts/jquery.flot.axislabels.js"></script>
+<script src="/scripts/main.js"></script>
+<% } %>
+
+</body>
+</html>
