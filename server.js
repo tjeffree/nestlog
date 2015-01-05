@@ -1,5 +1,5 @@
 // server.js
-require('newrelic');
+//require('newrelic');
 
 // set up ======================================================================
 // get all the tools we need
