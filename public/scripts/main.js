@@ -63,7 +63,7 @@ function nestLog() {}
 
                 var series = [
                     { data: data[0], label: "Temp" },
-                    { data: data[2], label: "Target" },
+                    { data: data[2], label: "Target", bars: { show: true } },
                     { data: data[1], label: "Humidity", yaxis: 2 }
                 ];
 
