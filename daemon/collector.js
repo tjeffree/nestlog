@@ -101,9 +101,7 @@ function getToken(user, done, callback) {
                 }
 
             });
-        });
-
-        req.on('error', function(e) {
+        }).on('error', function(e) {
             console.log(e);
 
             done();
@@ -171,9 +169,7 @@ function getTemperature(user, sId, done) {
             }
             
         });
-    });
-
-    req.on('error', function(e) {
+    }).on('error', function(e) {
         console.log(e);
         
         done();
