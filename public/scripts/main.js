@@ -40,6 +40,11 @@ function nestLog() {}
             },
             axisLabels: {
                 show: true
+            },
+            curvedLines: {
+                apply: true,
+                active: true,
+                monotonicFit: true
             }
         }
         , refreshTO = null
